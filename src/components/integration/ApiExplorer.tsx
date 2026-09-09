@@ -201,7 +201,7 @@ export const ApiExplorer: React.FC = () => {
         } else if (/^-?\d+(\.\d+)?(,\s*)?$/.test(trimmedRest)) {
           valElem = <span className="text-amber-300 dark:text-amber-400 font-bold font-mono">{rest}</span>;
         } else if (/^(true|false|null)(,\s*)?$/.test(trimmedRest)) {
-          valElem = <span className="text-purple-400 dark:text-purple-300 font-bold font-mono">{rest}</span>;
+          valElem = <span className="text-indigo-400 dark:text-indigo-300 font-bold font-mono">{rest}</span>;
         }
 
         return (
@@ -517,17 +517,17 @@ export const ApiExplorer: React.FC = () => {
 
             {/* Quick Scan Key Annotations */}
             <div className="flex flex-wrap items-center gap-1.5 py-1 px-2.5 bg-slate-100 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800/80 rounded-xl">
-              <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Judge Quick Scan:</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-sky-500/15 text-sky-700 dark:text-sky-300 border border-sky-500/30">
-                <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Judge Quick Scan:</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
                 Record: {sampleRecord.recordNumber}
               </span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 Area Balance: {sampleRecord.validationIssues.some(i => i.ruleCode === 'BR_REV_001_SHARE_MISMATCH') ? 'FAIL' : 'PASS'}
               </span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-500/30">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-indigo-500/15 text-indigo-800 dark:text-indigo-300 border border-indigo-500/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                 AI Confidence: {sampleRecord.overallConfidence.toFixed(1)}%
               </span>
             </div>

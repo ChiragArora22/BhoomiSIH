@@ -48,7 +48,7 @@ export const Sidebar: React.FC = () => {
       subLabel: t('tabVerifySub'),
       icon: SplitSquareVertical,
       badge: pendingCount,
-      badgeColor: 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+      badgeColor: 'bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30'
     },
     {
       id: 'CADASTRAL_GIS',
@@ -122,7 +122,7 @@ export const Sidebar: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs leading-snug">{item.label}</div>
-                  <div className="text-[10px] text-slate-400 dark:text-slate-500 font-normal leading-tight">{item.subLabel}</div>
+                  <div className="text-[10px] text-slate-500 dark:text-slate-400 font-normal leading-tight">{item.subLabel}</div>
                 </div>
               </div>
 
@@ -191,7 +191,7 @@ export const Sidebar: React.FC = () => {
                  userRole === 'CITIZEN' ? 'CITIZEN PORTAL' :
                  `${userRole} MODE`}
               </div>
-              <div className="text-[9px] text-slate-400 dark:text-slate-500">
+              <div className="text-[9px] text-slate-500 dark:text-slate-400">
                 {userRole === 'TEHSILDAR' ? 'NIC DSC Signatory' :
                  userRole === 'PATWARI' ? 'Field Verification' :
                  userRole === 'CITIZEN' ? 'Public Search Only' :
@@ -212,7 +212,7 @@ export const Sidebar: React.FC = () => {
           </span>
         </div>
 
-        <div className="flex items-center justify-between text-[10px] text-slate-400 dark:text-slate-500 px-1">
+        <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 px-1">
           <span>DILRMP Ver: 3.4.2</span>
           <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-mono font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>

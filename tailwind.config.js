@@ -41,6 +41,12 @@ export default {
           border: 'var(--border-subtle)',
           'border-strong': 'var(--border-strong)',
         },
+        // Semantic Ink via CSS variables
+        ink: {
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
+        },
       },
       fontFamily: {
         sans: ['Inter', '"Noto Sans Devanagari"', 'system-ui', '-apple-system', 'sans-serif'],
