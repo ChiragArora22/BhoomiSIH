@@ -134,13 +134,13 @@
   animation: fadeIn 0.25s ease-out forwards;
 }
 
-/* Subtle pulse for active focused bounding box */
+/* Subtle outline for active focused bounding box */
 @keyframes focusedBoundingBoxGlow {
   0%, 100% {
-    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.8), 0 0 12px rgba(99, 102, 241, 0.35);
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.8), 0 0 4px rgba(99, 102, 241, 0.2);
   }
   50% {
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 1), 0 0 24px rgba(99, 102, 241, 0.7);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 1), 0 0 6px rgba(99, 102, 241, 0.3);
   }
 }
 

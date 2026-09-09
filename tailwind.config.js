@@ -8,14 +8,14 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        'xl': '0.875rem',
-        '2xl': '1rem',
-        '3xl': '1.25rem',
+        'xl': '0.75rem',   /* 12px */
+        '2xl': '0.875rem', /* 14px */
+        '3xl': '1rem',     /* 16px */
       },
       boxShadow: {
         card: 'var(--shadow-card)',
         'card-hover': 'var(--shadow-card-hover)',
-        soft: '0 4px 24px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03)',
+        soft: '0 1px 3px 0 rgba(15, 23, 42, 0.05)',
       },
       colors: {
         // Brand Primary (Indigo/Blue-Violet) - dedicated for CTAs, active states, focus rings

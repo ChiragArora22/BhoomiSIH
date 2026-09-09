@@ -196,7 +196,7 @@ export const LandRecordProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [theme, setThemeState] = useState<ThemeMode>(() => {
     if (typeof window === 'undefined') return 'dark';
     try {
-      const saved = localStorage.getItem(STORAGE_KEYS.THEME);
+      const saved = localStorage.getItem(STORAGE_KEYS.THEME) || localStorage.getItem('theme');
       if (saved === 'light' || saved === 'dark') return saved;
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     } catch {
@@ -216,6 +216,7 @@ export const LandRecordProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }
     try {
       localStorage.setItem(STORAGE_KEYS.THEME, theme);
+      localStorage.setItem('theme', theme);
     } catch (e) {
       console.warn('[LocalStorage] Failed to save theme', e);
     }
