@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
@@ -44,6 +45,11 @@ export const TutorialVideoModal: React.FC<TutorialVideoModalProps> = ({ isOpen, 
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(25);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -113,10 +119,12 @@ export const TutorialVideoModal: React.FC<TutorialVideoModalProps> = ({ isOpen, 
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   };
 
-  return (
+  if (!isMounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-50 overflow-y-auto">
           {/* Backdrop Blur */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -126,20 +134,21 @@ export const TutorialVideoModal: React.FC<TutorialVideoModalProps> = ({ isOpen, 
             className="fixed inset-0 bg-slate-950/80 backdrop-blur-md cursor-pointer"
           />
 
-          {/* Modal Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 16 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative z-10 w-full max-w-5xl bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-1.5rem)] my-auto"
-          >
-            {/* Modal Header */}
-            <div className="flex-shrink-0 px-4 sm:px-5 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center">
-                  <span className="text-base">🌾</span>
-                </div>
+          {/* Centering Wrapper for safe scrolling */}
+          <div className="min-h-full flex items-center justify-center p-2 sm:p-4 md:p-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative z-10 w-full max-w-5xl bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-1.5rem)] my-auto"
+            >
+              {/* Modal Header */}
+              <div className="flex-shrink-0 px-4 sm:px-5 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-indigo-400" />
+                  </div>
                 <div>
                   <h3 className="text-sm font-bold text-white flex items-center gap-2">
                     How Bhoomi-Setu Works
@@ -299,7 +308,9 @@ export const TutorialVideoModal: React.FC<TutorialVideoModalProps> = ({ isOpen, 
             </div>
           </motion.div>
         </div>
+      </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
