@@ -43,10 +43,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
-        devanagari: ['"Noto Sans Devanagari"', '"Plus Jakarta Sans"', 'sans-serif'],
-        mono: ['"Fira Code"', 'Menlo', 'Monaco', 'Courier New', 'monospace'],
+        sans: ['Inter', '"Noto Sans Devanagari"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Inter', '"Noto Sans Devanagari"', 'sans-serif'],
+        devanagari: ['"Noto Sans Devanagari"', 'Inter', 'sans-serif'],
+        mono: ['"Fira Code"', 'monospace'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
