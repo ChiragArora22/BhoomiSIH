@@ -9,7 +9,7 @@ import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { GuidedDemoOverlay } from './components/common/GuidedDemoOverlay';
 import { ResponsiveNoticeBanner } from './components/common/ResponsiveNoticeBanner';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 
 // Lazy-loaded heavy modules for payload reduction (> 150 kB drop from initial chunk)
 const CadastralMapViewer = React.lazy(() => 
@@ -91,18 +91,26 @@ const MainContent: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <LandRecordProvider>
-      <div className="flex flex-col min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)] antialiased font-sans selection:bg-indigo-600 selection:text-white">
-        <Header />
-        <ResponsiveNoticeBanner />
-        <div className="flex flex-1 overflow-hidden">
-          <Sidebar />
-          <ErrorBoundary fallbackTitle="Workflow View Encountered an Issue">
-            <MainContent />
-          </ErrorBoundary>
+      <MotionConfig reducedMotion="user">
+        <a 
+          href="#main" 
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:p-2 focus:rounded shadow-md border border-slate-300"
+        >
+          Skip to main content
+        </a>
+        <div className="flex flex-col min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)] antialiased font-sans selection:bg-indigo-600 selection:text-white">
+          <Header />
+          <ResponsiveNoticeBanner />
+          <div className="flex flex-1 overflow-hidden">
+            <Sidebar />
+            <ErrorBoundary fallbackTitle="Workflow View Encountered an Issue">
+              <MainContent />
+            </ErrorBoundary>
+          </div>
+          <Footer />
+          <GuidedDemoOverlay />
         </div>
-        <Footer />
-        <GuidedDemoOverlay />
-      </div>
+      </MotionConfig>
     </LandRecordProvider>
   );
 };

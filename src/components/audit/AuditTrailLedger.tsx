@@ -119,7 +119,11 @@ export const AuditTrailLedger: React.FC = () => {
       </div>
 
       {/* Live Blockchain Growth Banner */}
-      <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+      <div 
+        role="status"
+        aria-live="polite"
+        className="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
+      >
         <div className="flex items-center gap-2.5">
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0" />
           <p className="text-emerald-900 dark:text-emerald-200">

@@ -508,6 +508,8 @@ export const PreprocessingStudio: React.FC = () => {
             className="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4"
           >
             <motion.div
+              role="status"
+              aria-live="polite"
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}

@@ -47,6 +47,7 @@ import {
   Edit3,
   Zap,
   RotateCcw,
+  Lightbulb,
   Check
 } from 'lucide-react';
 
@@ -480,6 +481,8 @@ export const ExtractedFieldsForm: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
+            role="status"
+            aria-live="polite"
             className="rounded-2xl border-2 border-rose-500/60 bg-gradient-to-br from-rose-950/80 via-slate-900/95 to-amber-950/60 p-4.5 shadow-xl text-white space-y-3.5 relative overflow-hidden"
           >
             <div className="absolute -right-8 -bottom-8 w-36 h-36 bg-rose-500/15 rounded-full blur-2xl pointer-events-none" />
@@ -521,7 +524,7 @@ export const ExtractedFieldsForm: React.FC = () => {
                 title="Automatically normalize co-owner shares proportionally to exactly 100.00% and append SHA-256 block to audit ledger"
               >
                 <Zap className="w-4 h-4 text-amber-300 fill-amber-300 group-hover:scale-110 transition-transform" />
-                <span>⚡ Auto-Normalize Shares Proportionally (100.00%)</span>
+                <span>Auto-Normalize Shares Proportionally (100.00%)</span>
               </motion.button>
             </div>
 
@@ -591,8 +594,9 @@ export const ExtractedFieldsForm: React.FC = () => {
                     </div>
                     <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">{issue.message}</p>
                     {issue.suggestedFix && (
-                      <div className="text-[10px] text-amber-300/90 mt-1 font-medium">
-                        💡 Suggested Action: {issue.suggestedFix}
+                      <div className="text-[10px] text-amber-300/90 mt-1 font-medium flex items-center gap-1">
+                        <Lightbulb className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                        <span>Suggested Action: {issue.suggestedFix}</span>
                       </div>
                     )}
                   </div>
@@ -1210,7 +1214,7 @@ export const ExtractedFieldsForm: React.FC = () => {
               title="Apply NIC Digital Signature Token (DSC) to legally sanction this mutation under UP Revenue Code"
             >
               <Lock className="w-4 h-4 text-amber-300" />
-              <span>⚡ Digitally Sign & Sanction Mutation (NIC e-Sign DSC Token)</span>
+              <span>Digitally Sign & Sanction Mutation (NIC e-Sign DSC Token)</span>
             </motion.button>
           )}
 

@@ -131,7 +131,7 @@ export const Header: React.FC = () => {
             aria-label="Toggle presenter demo flow"
           >
             <Compass className={`w-3.5 h-3.5 ${isDemoModeActive ? 'animate-spin' : 'text-indigo-400'}`} style={{ animationDuration: '6s' }} />
-            <span>{isDemoModeActive ? `Demo Active (Step ${demoStep + 1}/6)` : '🎯 Demo Flow'}</span>
+            <span>{isDemoModeActive ? `Demo Active (Step ${demoStep + 1}/6)` : 'Demo Flow'}</span>
           </button>
         </div>
       </div>

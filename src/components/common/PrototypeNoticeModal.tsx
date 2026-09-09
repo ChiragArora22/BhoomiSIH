@@ -7,7 +7,8 @@ import {
   X, 
   ArrowRight,
   Database,
-  Cpu
+  Cpu,
+  Lightbulb
 } from 'lucide-react';
 
 interface PrototypeNoticeModalProps {
@@ -79,7 +80,7 @@ export const PrototypeNoticeModal: React.FC<PrototypeNoticeModalProps> = ({ isOp
             {/* Content Body */}
             <div className="p-5 space-y-4 text-xs text-slate-600 dark:text-slate-300">
               <div className="p-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-500/30 text-amber-900 dark:text-amber-200 flex items-start gap-3">
-                <span className="text-base">💡</span>
+                <Lightbulb className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <span className="font-bold block text-xs">Simulated Data & Prototype Notice</span>
                   <p className="text-[11px] leading-relaxed opacity-90">

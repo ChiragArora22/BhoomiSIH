@@ -99,6 +99,7 @@ export const Sidebar: React.FC = () => {
               onClick={() => setActiveTab(item.id)}
               whileTap={{ scale: 0.98 }}
               aria-label={`${item.label} - ${item.subLabel}`}
+              aria-current={isActive ? 'page' : undefined}
               className={`relative w-full flex items-center justify-center md:justify-between px-2 md:px-3 py-2.5 rounded-xl text-left transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                 isActive
                   ? 'text-indigo-600 dark:text-indigo-400 font-semibold'
