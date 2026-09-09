@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: #4F46E5;
+    --brand-primary-hover: #4338CA;
+    --brand-primary-light: #EEF2FF;
+    --brand-primary-border: rgba(79, 70, 229, 0.25);
+    
+    --bg-base: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --bg-surface-raised: #F1F5F9;
+    --border-subtle: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    
+    --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+    --shadow-card-hover: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  }
+
+  html.dark, :root.dark {
+    --brand-primary: #6366F1;
+    --brand-primary-hover: #4F46E5;
+    --brand-primary-light: rgba(99, 102, 241, 0.15);
+    --brand-primary-border: rgba(99, 102, 241, 0.35);
+
+    --bg-base: #0B0F19;
+    --bg-surface: #111827;
+    --bg-surface-raised: #1F2937;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+
+    --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --shadow-card-hover: 0 10px 25px -3px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  }
+
+  html {
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars with theme awareness */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Leaflet map custom styling */
+.leaflet-container {
+  background: var(--bg-base) !important;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-radius: 1rem !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: var(--shadow-card-hover) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-surface) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Subtle pulse for active focused bounding box */
+@keyframes focusedBoundingBoxGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.8), 0 0 12px rgba(99, 102, 241, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 1), 0 0 24px rgba(99, 102, 241, 0.7);
+  }
+}
+
+.focused-box-pulse {
+  animation: focusedBoundingBoxGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle slow pulse for disputed GIS parcel */
+@keyframes disputedParcelPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 0.5; }
+}
+
+.disputed-parcel-glow {
+  animation: disputedParcelPulse 2.5s ease-in-out infinite;
+}
+
+/* Smooth input focus transition */
+input, select, textarea {
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--brand-primary-border);
+  border-color: var(--brand-primary);
+}
+
+/* Modern smooth slider styling with Indigo thumb */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px var(--brand-primary-border);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+input[type="range"]:active::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 14px var(--brand-primary-border), 0 0 0 3px var(--brand-primary-border);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px var(--brand-primary-border);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+input[type="range"]:active::-moz-range-thumb,
+input[type="range"]:focus::-moz-range-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 14px var(--brand-primary-border), 0 0 0 3px var(--brand-primary-border);
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

@@ -8,75 +8,45 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        '2xl': '1.25rem',
-        '3xl': '1.5rem',
+        'xl': '0.875rem',
+        '2xl': '1rem',
+        '3xl': '1.25rem',
       },
       boxShadow: {
-        card: '0 12px 40px -18px rgb(80 40 16 / 0.28)',
+        card: 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
+        soft: '0 4px 24px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03)',
       },
       colors: {
-        // Warm espresso (replaces cool slate in the UI)
-        slate: {
-          50: '#FBF6EE',
-          100: '#F6EBDC',
-          200: '#EAD6BB',
-          300: '#D4B894',
-          400: '#B08A62',
-          500: '#8C6A48',
-          600: '#6E5238',
-          700: '#4F3C2C',
-          800: '#3A2C20',
-          900: '#241910',
-          950: '#16100C',
+        // Brand Primary (Indigo/Blue-Violet) - dedicated for CTAs, active states, focus rings
+        brand: {
+          50: '#EEF2FF',
+          100: '#E0E7FF',
+          200: '#C7D2FE',
+          300: '#A5B4FC',
+          400: '#818CF8',
+          500: '#6366F1',
+          600: '#4F46E5', // Main Primary CTA
+          700: '#4338CA', // Primary Hover
+          800: '#3730A3',
+          900: '#312E81',
+          950: '#1E1B4B',
+          DEFAULT: '#4F46E5',
         },
-        // Terracotta (replaces mint emerald)
-        emerald: {
-          50: '#FDF4EC',
-          100: '#F8E0D4',
-          200: '#F0C4A8',
-          300: '#E39A70',
-          400: '#D47845',
-          500: '#C45C26',
-          600: '#A84B1E',
-          700: '#8A3C18',
-          800: '#6B2E14',
-          900: '#4A2010',
-          950: '#2C140A',
-        },
-        sih: {
-          50: '#FDF4EC',
-          100: '#F8E0D4',
-          200: '#F0C4A8',
-          300: '#E39A70',
-          400: '#D47845',
-          500: '#C45C26',
-          600: '#A84B1E',
-          700: '#8A3C18',
-          800: '#6B2E14',
-          900: '#4A2010',
-        },
-        navy: {
-          800: '#3A2C20',
-          850: '#241910',
-          900: '#16100C',
-          950: '#100C0A',
-        },
-        gold: {
-          400: '#E8B84A',
-          500: '#D4A017',
-          600: '#B8860B',
-        },
-        cream: {
-          50: '#FFFBF5',
-          100: '#F6EDE0',
-          200: '#EBD9C4',
+        // Semantic Surfaces via CSS variables
+        surface: {
+          base: 'var(--bg-base)',
+          card: 'var(--bg-surface)',
+          raised: 'var(--bg-surface-raised)',
+          border: 'var(--border-subtle)',
+          'border-strong': 'var(--border-strong)',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['Fira Code', 'Courier New', 'monospace'],
-        devanagari: ['Noto Sans Devanagari', 'Mangal', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+        devanagari: ['"Noto Sans Devanagari"', '"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"Fira Code"', 'Menlo', 'Monaco', 'Courier New', 'monospace'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
