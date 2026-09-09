@@ -5,9 +5,9 @@ export type TranslationKey = keyof typeof TRANSLATIONS['en'];
 export const TRANSLATIONS = {
   en: {
     // Top Banner & Brand
-    dilrmpBadge: 'DILRMP Compliant (Digital India Land Records Modernization Programme)',
+    dilrmpBadge: 'DILRMP Modernization Framework (DoLR)',
     ministryTitle: 'Ministry of Rural Development & Land Resources, Govt. of India',
-    immutableAudit: 'SHA-256 Immutable Audit Active',
+    immutableAudit: 'Append-only local log · SHA-256 where platform allows',
     brandSubtitle: 'भू-अभिलेख सेतु | Intelligent Land Record Digitization & Validation System',
     searchPlaceholder: 'Search by Khasra No, Khata, Survey, Owner Name, Village...',
     findBtn: 'Find',
@@ -18,7 +18,7 @@ export const TRANSLATIONS = {
     discrepancyAlertTitle: 'Discrepancy Alerts',
     discrepancyAlertSub: 'Area ratio / dispute flags need resolution.',
     authGovt: 'Authenticated NIC SSO',
-    aiOnline: 'AI Engine Online',
+    aiOnline: 'Deterministic Rule Engine',
 
     // Roles
     roleOperator: 'Data Entry Operator (DEO)',
@@ -40,7 +40,7 @@ export const TRANSLATIONS = {
     tabLearningSub: 'Feedback Queue & Retrain',
     tabLrms: 'DILRMP / LRMS Hub',
     tabLrmsSub: 'Open APIs & Export',
-    tabAudit: 'Audit & Blockchain',
+    tabAudit: 'Audit Trail & Ledger',
     tabAuditSub: 'SHA-256 Provenance Log',
     tabCitizen: 'Citizen RoR Portal',
     tabCitizenSub: 'Public Land Record Search',
@@ -56,7 +56,7 @@ export const TRANSLATIONS = {
     kpiAutoRule: 'Auto-Rule Validated',
     kpiPending: 'Pending Patwari Review',
     kpiDisputes: 'Discrepancy Flags',
-    kpiBlockchain: 'Immutable Blockchain',
+    kpiAuditLog: 'Append-Only Audit Log',
     stateProgressTitle: 'State-Wise Modernization & Digitization Index (DILRMP)',
     stateProgressSubtitle: 'Live cadastral polygon conversion, spatial linking, and bilingual record digitization metrics.',
     selectedTerritory: 'Selected Territory',
@@ -132,9 +132,9 @@ export const TRANSLATIONS = {
 
   hi: {
     // Top Banner & Brand
-    dilrmpBadge: 'डीआईएलआरएमपी अनुपालित (डिजिटल इंडिया भूमि अभिलेख आधुनिकीकरण कार्यक्रम)',
+    dilrmpBadge: 'डीआईएलआरएमपी आधुनिकीकरण ढांचा (भूमि संसाधन विभाग - DoLR)',
     ministryTitle: 'ग्रामीण विकास एवं भूमि संसाधन मंत्रालय, भारत सरकार',
-    immutableAudit: 'एसएचए-256 अपरिवर्तनीय ऑडिट सक्रिय',
+    immutableAudit: 'स्थानीय अपरिवर्तनीय लॉग · प्लेटफ़ॉर्म समर्थित SHA-256',
     brandSubtitle: 'भू-अभिलेख सेतु | कृत्रिम बुद्धिमत्ता आधारित भूमि अभिलेख डिजिटलीकरण एवं सत्यापन प्रणाली',
     searchPlaceholder: 'खसरा संख्या, खाता, सर्वे, खातेदार का नाम, ग्राम से खोजें...',
     findBtn: 'खोजें',
@@ -145,7 +145,7 @@ export const TRANSLATIONS = {
     discrepancyAlertTitle: 'विसंगति चेतावनी',
     discrepancyAlertSub: 'रकबा/हिस्सा अनुपात अथवा विवाद समाधान आवश्यक।',
     authGovt: 'प्रमाणित एनआईसी सिंगल साइन-ऑन',
-    aiOnline: 'एआई इंजन सक्रिय',
+    aiOnline: 'निश्चयात्मक नियम इंजन (Rule Engine)',
 
     // Roles
     roleOperator: 'डाटा एंट्री ऑपरेटर (डीईओ)',
@@ -167,7 +167,7 @@ export const TRANSLATIONS = {
     tabLearningSub: 'फीडबैक कतार एवं पुनःप्रशिक्षण',
     tabLrms: 'डीआईएलआरएमपी केंद्र',
     tabLrmsSub: 'ओपन एपीआई एवं निर्यात',
-    tabAudit: 'ऑडिट व ब्लॉकचेन',
+    tabAudit: 'ऑडिट लेजर व इतिहास',
     tabAuditSub: 'एसएचए-256 उत्पत्ति लेजर',
     tabCitizen: 'नागरिक खतौनी पोर्टल',
     tabCitizenSub: 'सार्वजनिक भू-अभिलेख खोज',
@@ -183,7 +183,7 @@ export const TRANSLATIONS = {
     kpiAutoRule: 'स्वचालित सत्यापित दर',
     kpiPending: 'लंबित राजस्व समीक्षा',
     kpiDisputes: 'विसंगति/विवाद प्रकरण',
-    kpiBlockchain: 'अपरिवर्तनीय ब्लॉकचेन',
+    kpiAuditLog: 'अपरिवर्तनीय ऑडिट लॉग',
     stateProgressTitle: 'राज्यवार आधुनिकीकरण एवं डिजिटलीकरण प्रगति (DILRMP)',
     stateProgressSubtitle: 'लाइव कैडस्ट्रल पार्सल मैपिंग, स्थानिक एकीकरण और द्विभाषी अभिलेख प्रगति।',
     selectedTerritory: 'चयनित राज्य / क्षेत्र',
@@ -259,9 +259,9 @@ export const TRANSLATIONS = {
 
   mr: {
     // Top Banner & Brand
-    dilrmpBadge: 'DILRMP अनुपालन (डिजिटल इंडिया भू-अभिलेख आधुनिकीकरण कार्यक्रम)',
+    dilrmpBadge: 'DILRMP आधुनिकीकरण आराखडा (DoLR)',
     ministryTitle: 'ग्रामीण विकास व भू-संसाधन मंत्रालय, भारत सरकार',
-    immutableAudit: 'SHA-256 अपरिवर्तनीय ऑडिट सक्रिय',
+    immutableAudit: 'स्थानिक अपरिवर्तनीय लॉग · SHA-256',
     brandSubtitle: 'भू-अभिलेख सेतू | कृत्रिम बुद्धिमत्ता आधारित जमीन महसूल अभिलेख डिजिटलीकरण व प्रमाणीकरण प्रणाली',
     searchPlaceholder: 'गट क्रमांक, खाते नंबर, सर्व्हे, खातेदाराचे नाव, गावाने शोधा...',
     findBtn: 'शोधा',
@@ -272,7 +272,7 @@ export const TRANSLATIONS = {
     discrepancyAlertTitle: 'विसंगती सूचना',
     discrepancyAlertSub: 'क्षेत्रफळ/हिस्सा प्रमाण किंवा वाद निराकरण आवश्यक.',
     authGovt: 'प्रमाणित NIC SSO',
-    aiOnline: 'AI इंजिन ऑनलाइन',
+    aiOnline: 'नियम आधारित इंजिन (Rule Engine)',
 
     // Roles
     roleOperator: 'डेटा एंट्री ऑपरेटर (DEO)',
@@ -294,7 +294,7 @@ export const TRANSLATIONS = {
     tabLearningSub: 'अभिप्राय रांग व मॉडेल प्रशिक्षण',
     tabLrms: 'DILRMP / LRMS केंद्र',
     tabLrmsSub: 'ओपन API व निर्यात',
-    tabAudit: 'ऑडिट व ब्लॉकचेन',
+    tabAudit: 'ऑडिट नोंदवही व इतिहास',
     tabAuditSub: 'SHA-256 अपरिवर्तनीय नोंदवही',
     tabCitizen: 'नागरिक ७/१२ पोर्टल',
     tabCitizenSub: 'सार्वजनिक ७/१२ व ८अ शोध',
@@ -310,7 +310,7 @@ export const TRANSLATIONS = {
     kpiAutoRule: 'स्वयंचलित प्रमाणित दर',
     kpiPending: 'प्रलंबित तलाठी तपासणी',
     kpiDisputes: 'विसंगती/विवाद प्रकरणे',
-    kpiBlockchain: 'अपरिवर्तनीय ब्लॉकचेन',
+    kpiAuditLog: 'अपरिवर्तनीय ऑडिट लॉग',
     stateProgressTitle: 'राज्यनिहाय आधुनिकीकरण व डिजिटलीकरण निर्देशांक (DILRMP)',
     stateProgressSubtitle: 'थेट कॅडस्ट्रल पार्सल मॅपिंग, स्थानिक दुवा आणि द्विभाषिक अभिलेख प्रगती.',
     selectedTerritory: 'निवडलेले राज्य / प्रदेश',
@@ -386,9 +386,9 @@ export const TRANSLATIONS = {
 
   ta: {
     // Top Banner & Brand
-    dilrmpBadge: 'DILRMP இணக்கமானது (டிஜிட்டல் இந்தியா நில ஆவணங்கள் நவீனமயமாக்கல் திட்டம்)',
+    dilrmpBadge: 'DILRMP நவீனமயமாக்கல் கட்டமைப்பு (DoLR)',
     ministryTitle: 'ஊரக வளர்ச்சி மற்றும் நில வளங்கள் அமைச்சகம், இந்திய அரசு',
-    immutableAudit: 'SHA-256 பிளாக்செயின் தணிக்கை இயங்குகிறது',
+    immutableAudit: 'உள்ளூர் தணிக்கை பதிவு · SHA-256',
     brandSubtitle: 'பூமி சேது AI | AI-இயங்கும் நில ஆவணங்கள் டிஜிட்டல் மயமாக்கல் மற்றும் சரிபார்ப்பு அமைப்பு',
     searchPlaceholder: 'புல எண், பட்டா எண், கிராமம், பட்டாதாரர் பெயர் மூலம் தேடுக...',
     findBtn: 'தேடு',
@@ -399,7 +399,7 @@ export const TRANSLATIONS = {
     discrepancyAlertTitle: 'முரண்பாடு எச்சரிக்கை',
     discrepancyAlertSub: 'பரப்பளவு விகிதம் அல்லது உரிமை தகராறு தீர்க்கப்பட வேண்டும்.',
     authGovt: 'சான்றளிக்கப்பட்ட NIC SSO',
-    aiOnline: 'AI இயந்திரம் இயங்குகிறது',
+    aiOnline: 'விதி அடிப்படையிலான இயந்திரம்',
 
     // Roles
     roleOperator: 'தரவு உள்ளீட்டாளர் (DEO)',
@@ -421,7 +421,7 @@ export const TRANSLATIONS = {
     tabLearningSub: 'பின்னூட்ட வரிசை & மறுபயிற்சி',
     tabLrms: 'DILRMP ஒருங்கிணைப்பு',
     tabLrmsSub: 'திறந்தநிலை API & ஏற்றுமதி',
-    tabAudit: 'தணிக்கை & பிளாக்செயின்',
+    tabAudit: 'தணிக்கை பதிவு & வரலாறு',
     tabAuditSub: 'SHA-256 மாற்ற முடியாத பதிவு',
     tabCitizen: 'குடிமக்கள் பட்டா தளம்',
     tabCitizenSub: 'பட்டா / சிட்டா நகல் தேடல்',
@@ -437,7 +437,7 @@ export const TRANSLATIONS = {
     kpiAutoRule: 'தானியங்கி சரிபார்ப்பு விகிதம்',
     kpiPending: 'நிலுவையில் உள்ள மதிப்பாய்வு',
     kpiDisputes: 'முரண்பாடு / வழக்கு வழக்குகள்',
-    kpiBlockchain: 'பிளாக்செயின் தொகுதிகள்',
+    kpiAuditLog: 'தணிக்கை பதிவு (Audit Log)',
     stateProgressTitle: 'மாநில அளவிலான நில ஆவண நவீனமயமாக்கல் குறியீடு (DILRMP)',
     stateProgressSubtitle: 'நேரலை நில வரைபட வெக்டார் உருவாக்கம் மற்றும் ஆவண டிஜிட்டல் முன்னேற்றம்.',
     selectedTerritory: 'தேர்ந்தெடுக்கப்பட்ட பகுதி',
@@ -513,9 +513,9 @@ export const TRANSLATIONS = {
 
   te: {
     // Top Banner & Brand
-    dilrmpBadge: 'DILRMP కంప్లైంట్ (డిజిటల్ ఇండియా భూ రికార్డుల ఆధునీకరణ కార్యక్రమం)',
+    dilrmpBadge: 'DILRMP ఆధునీకరణ ఫ్రేమ్‌వర్క్ (DoLR)',
     ministryTitle: 'గ్రామీణాభివృద్ధి మరియు భూ వనరుల మంత్రిత్వ శాఖ, భారత ప్రభుత్వం',
-    immutableAudit: 'SHA-256 బ్లాక్‌చెయిన్ ఆడిట్ యాక్టివ్',
+    immutableAudit: 'లోకల్ ఆడిట్ లాగ్ · SHA-256',
     brandSubtitle: 'భూమి సేతు AI | కృత్రిమ మేధ ఆధారిత భూ రికార్డుల డిజిటలైజేషన్ మరియు ధృవీకరణ వ్యవస్థ',
     searchPlaceholder: 'సర్వే నం, ఖాతా నం, గ్రామం, పట్టాదారుని పేరుతో శోధించండి...',
     findBtn: 'శోధించు',
@@ -526,7 +526,7 @@ export const TRANSLATIONS = {
     discrepancyAlertTitle: 'తేడాల హెచ్చరిక',
     discrepancyAlertSub: 'విస్తీర్ణ నిష్పత్తి లేదా వివాద పరిష్కారం అవసరం.',
     authGovt: 'ధృవీకరించబడిన NIC SSO',
-    aiOnline: 'AI ఇంజిన్ ఆన్‌లైన్',
+    aiOnline: 'నిబంధనల ఆధారిత ఇంజిన్',
 
     // Roles
     roleOperator: 'డేటా ఎంట్రీ ఆపరేటర్ (DEO)',
@@ -548,7 +548,7 @@ export const TRANSLATIONS = {
     tabLearningSub: 'ఫీడ్‌బ్యాక్ క్యూ & రీ-ట్రైనింగ్',
     tabLrms: 'DILRMP అనుసంధానం',
     tabLrmsSub: 'ఓపెన్ APIలు & ఎగుమతి',
-    tabAudit: 'ఆడిట్ & బ్లాక్‌చెయిన్',
+    tabAudit: 'ఆడిట్ లెడ్జర్ & చరిత్ర',
     tabAuditSub: 'SHA-256 లెడ్జర్ రికార్డు',
     tabCitizen: 'పౌర పహానీ పోర్టల్',
     tabCitizenSub: 'పహానీ / అడంగల్ శోధన',
@@ -564,7 +564,7 @@ export const TRANSLATIONS = {
     kpiAutoRule: 'ఆటో-రూల్ ధృవీకరణ శాతం',
     kpiPending: 'పెండింగ్ సమీక్షలు',
     kpiDisputes: 'వివాదాల కేసులు',
-    kpiBlockchain: 'బ్లాక్‌చెయిన్ బ్లాక్‌లు',
+    kpiAuditLog: 'ఆడిట్ లాగ్ (Audit Log)',
     stateProgressTitle: 'రాష్ట్రాల వారీగా ఆధునీకరణ సూచిక (DILRMP)',
     stateProgressSubtitle: 'లైవ్ కాడాస్ట్రల్ పార్సెల్ మ్యాపింగ్ మరియు ద్విభాషా రికార్డుల ప్రగతి.',
     selectedTerritory: 'ఎంపిక చేసిన ప్రాంతం',

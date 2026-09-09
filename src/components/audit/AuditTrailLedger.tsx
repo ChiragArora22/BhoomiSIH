@@ -92,10 +92,10 @@ export const AuditTrailLedger: React.FC = () => {
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1">
             <ShieldCheck className="w-4 h-4" />
-            SHA-256 Tamper-Proof Cryptographic Provenance
+            SHA-256 Chained Cryptographic Provenance
           </div>
           <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Immutable Audit Trail & Blockchain Revenue Ledger
+            Append-Only Audit Trail & Revenue Ledger
           </h2>
           <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
             Every OCR digitization step, officer correction, area modification, and digital signature approval is cryptographically chained with SHA-256 hashes.
@@ -111,7 +111,7 @@ export const AuditTrailLedger: React.FC = () => {
           <div className={`w-3 h-3 rounded-full ${isVerifying ? 'bg-amber-500 animate-spin' : 'bg-emerald-500 animate-pulse'}`}></div>
           <div className="text-left">
             <div className="font-bold text-emerald-800 dark:text-emerald-300">
-              {isVerifying ? 'Recalculating Merkle Root...' : '100% Chain Integrity Verified'}
+              {isVerifying ? 'Verifying Chain Hashes...' : 'Chain Integrity Verified'}
             </div>
             <div className="text-[10px] text-slate-500 dark:text-slate-400 font-mono">{auditChain.length} Blocks Sequenced • Click to Audit</div>
           </div>
@@ -123,7 +123,7 @@ export const AuditTrailLedger: React.FC = () => {
         <div className="flex items-center gap-2.5">
           <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0" />
           <p className="text-emerald-900 dark:text-emerald-200">
-            <span className="font-bold">Live Chaining Active:</span> Actions taken across Bhoomi-Setu (verifying records in HITL, normalising co-owner shares, executing cadastral splits, or running OCR) automatically append SHA-256 blocks to this immutable ledger in real time.
+            <span className="font-bold">Live Chaining Active:</span> Actions taken across Bhoomi-Setu (verifying records in HITL, normalising co-owner shares, executing cadastral splits, or running OCR) automatically append SHA-256 blocks to this audit ledger in real time.
           </p>
         </div>
         <span className="shrink-0 font-mono text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-white dark:bg-slate-900 px-2.5 py-1 rounded-lg border border-emerald-300 dark:border-emerald-800 shadow-xs">
@@ -144,7 +144,7 @@ export const AuditTrailLedger: React.FC = () => {
             <option value="OPERATOR">Data Entry Operator</option>
             <option value="PATWARI">Patwari / Inspector</option>
             <option value="TEHSILDAR">Tehsildar / SDM</option>
-            <option value="AI_SERVICE">AI Vision Engine</option>
+            <option value="AI_SERVICE">AI / Rule Engine</option>
             <option value="SYSTEM">System Root</option>
           </select>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLandRecord } from '../../context/LandRecordContext';
+import { validateLandRecord } from '../../utils/validationRules';
 import {
   Server,
   Code,
@@ -14,11 +15,12 @@ import {
   Send,
   Sparkles,
   QrCode,
-  RefreshCw
+  RefreshCw,
+  AlertCircle
 } from 'lucide-react';
 
 export const ApiExplorer: React.FC = () => {
-  const { activeRecord, records, appendAuditBlock } = useLandRecord();
+  const { activeRecord, records } = useLandRecord();
 
   const [selectedEndpoint, setSelectedEndpoint] = useState<'EXTRACT' | 'VALIDATE' | 'CADASTRE' | 'SYNC'>('EXTRACT');
   const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
@@ -28,11 +30,11 @@ export const ApiExplorer: React.FC = () => {
 
   // Pre-initialize response with formatted sample JSON
   const [apiResponse, setApiResponse] = useState<string>(() => JSON.stringify({
-    status: 'SUCCESS',
+    status: 'LOCAL_RECORD_INSPECTED',
     code: 200,
-    timestamp: '2026-09-09T12:00:00.000Z',
-    processingTimeMs: 278,
-    modelVersion: 'BhoomiVision-v3.4-LayoutLMv3',
+    timestamp: new Date().toISOString(),
+    engine: 'Bhoomi-Setu Client-Side Rule Validator',
+    contractNotice: 'contract we would consume — no live call in this build',
     data: {
       recordNumber: sampleRecord.recordNumber,
       documentType: sampleRecord.documentType,
@@ -58,11 +60,10 @@ export const ApiExplorer: React.FC = () => {
     let fullJson = '';
     if (selectedEndpoint === 'EXTRACT') {
       fullJson = JSON.stringify({
-        status: 'SUCCESS',
+        status: 'LOCAL_RECORD_EXTRACTED',
         code: 200,
         timestamp: new Date().toISOString(),
-        processingTimeMs: 278,
-        modelVersion: 'BhoomiVision-v3.4-LayoutLMv3',
+        contractNotice: 'contract we would consume — no live call in this build',
         data: {
           recordNumber: sampleRecord.recordNumber,
           documentType: sampleRecord.documentType,
@@ -75,20 +76,34 @@ export const ApiExplorer: React.FC = () => {
         }
       }, null, 2);
     } else if (selectedEndpoint === 'VALIDATE') {
+      const realIssues = validateLandRecord(sampleRecord, records);
       fullJson = JSON.stringify({
-        status: 'VALIDATION_COMPLETED',
+        status: realIssues.length === 0 ? 'VALIDATION_PASSED' : 'VALIDATION_FLAGGED',
         code: 200,
         timestamp: new Date().toISOString(),
-        mathAreaBalance: sampleRecord.validationIssues.some(i => i.ruleCode === 'BR_REV_001_SHARE_MISMATCH') ? 'FAIL' : 'PASS',
-        duplicateDetection: 'CLEAR_NO_DUPLICATE',
-        litigationCheck: sampleRecord.isLitigationPending ? 'ACTIVE_STAY_FOUND' : 'CLEAR',
-        encroachmentFlag: 'CLEARED_NOT_GOVT_LAND',
-        totalDiscrepanciesFound: sampleRecord.validationIssues.length,
-        issues: sampleRecord.validationIssues
+        contractNotice: 'contract we would consume — no live call in this build',
+        deterministicRulesChecked: [
+          'BR_REV_001_SHARE_MISMATCH',
+          'BR_REV_002_NO_OWNER',
+          'BR_REV_003_AREA_CONSERVATION',
+          'BR_REV_004_DUPLICATE_KHASRA',
+          'BR_REV_005_GOVT_LAND_ENCROACHMENT',
+          'BR_REV_006_RESTRICTED_FOREST',
+          'BR_REV_007_MUTATION_TIMELINE',
+          'BR_REV_008_MINOR_WITHOUT_GUARDIAN',
+          'BR_REV_009_DISPUTED_TITLE',
+          'BR_REV_010_STAMP_DUTY_DEFICIT'
+        ],
+        totalDiscrepanciesFound: realIssues.length,
+        mathAreaBalance: realIssues.some(i => i.ruleCode === 'BR_REV_001_SHARE_MISMATCH') ? 'FAIL' : 'PASS',
+        issues: realIssues
       }, null, 2);
     } else if (selectedEndpoint === 'CADASTRE') {
       fullJson = JSON.stringify({
-        status: 'SUCCESS',
+        status: 'LOCAL_GEODATA_INSPECTED',
+        code: 200,
+        timestamp: new Date().toISOString(),
+        contractNotice: 'contract we would consume — no live call in this build',
         khasraNo: sampleRecord.khasraNumber,
         bhuvanParcelId: sampleRecord.bhuvanParcelId || 'UP-BHU-09-342-01',
         coordinates: sampleRecord.gisCoordinates,
@@ -98,23 +113,14 @@ export const ApiExplorer: React.FC = () => {
       }, null, 2);
     } else {
       fullJson = JSON.stringify({
-        status: 'SYNCED_TO_DILRMP_CENTRAL',
-        code: 201,
-        syncId: `DILRMP-SYNC-${Date.now()}`,
-        blockchainTxHash: `0x${Array.from({length: 64}, () => Math.floor(Math.random()*16).toString(16)).join('')}`,
+        status: 'OFFLINE_CONTRACT_SPECIFICATION',
+        code: 200,
+        timestamp: new Date().toISOString(),
+        contractNotice: 'contract we would consume — no live call in this build',
+        targetGateway: 'DILRMP Central National Land Information System (NLIS)',
         statePortal: 'Bhulekh UP / MahaBhumi Gateway',
-        message: 'Record successfully registered into National Land Information System (NLIS).'
+        note: 'Live remote synchronization endpoint not available in offline prototype build.'
       }, null, 2);
-
-      appendAuditBlock(
-        sampleRecord.id,
-        sampleRecord.recordNumber,
-        'EXPORTED_DILRMP',
-        'Central DILRMP Gateway',
-        'SYSTEM',
-        'National Land Information System',
-        `Cryptographically verified land record packet exported and synchronized to Central DILRMP / State Bhulekh.`
-      );
     }
 
     const lines = fullJson.split('\n');
@@ -165,7 +171,7 @@ export const ApiExplorer: React.FC = () => {
   </TenureHolders>
   <VerificationSeal>
     <DigitalSignature>${sampleRecord.approvedByTehsildar?.digitalSignatureHash || 'PENDING_FINAL_SIGN'}</DigitalSignature>
-    <IntegrityHash>SHA256-DILRMP-COMPLIANT</IntegrityHash>
+    <IntegrityHash>SHA256-RECORD-VERIFIED</IntegrityHash>
   </VerificationSeal>
 </DILRMPLandRecord>`;
 
@@ -174,7 +180,7 @@ export const ApiExplorer: React.FC = () => {
     if (!rawJson) return null;
     const lines = rawJson.split('\n');
     return lines.map((line, idx) => {
-      const isKeyLine = /("mathAreaBalance"|"blockchainTxHash"|"meanConfidence"|"khasraNumber"|"status")/.test(line);
+      const isKeyLine = /("mathAreaBalance"|"meanConfidence"|"khasraNumber"|"status")/.test(line);
       
       if (line.trim().startsWith('//')) {
         return (
@@ -363,10 +369,15 @@ export const ApiExplorer: React.FC = () => {
         {/* Left 7 Cols: Interactive API Endpoint Runner */}
         <div className="lg:col-span-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-card space-y-4">
           <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <Code className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-              Interactive REST API Sandbox
-            </h3>
+            <div>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Code className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+                Interactive REST API Sandbox
+              </h3>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                contract we would consume — no live call in this build
+              </p>
+            </div>
             <span className="text-[10px] bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 border border-brand-500/20 px-2 py-0.5 rounded font-mono font-semibold">
               API v1.0.4 Active
             </span>
@@ -548,7 +559,7 @@ export const ApiExplorer: React.FC = () => {
                 e-Sign DSC Token
               </span>
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-mono font-medium bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
-                SHA-256 Sealed
+                SHA-256 Digest
               </span>
             </div>
 

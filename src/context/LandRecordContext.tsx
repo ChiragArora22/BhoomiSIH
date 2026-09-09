@@ -91,7 +91,7 @@ const DEFAULT_MODEL_METRICS: ModelMetrics = {
   modelVersion: 'BhoomiVision-v3.4-Transformer',
   overallAccuracyPercent: 96.4,
   printedAccuracyPercent: 98.2,
-  handwrittenAccuracyPercent: 86.8,
+  handwrittenAccuracyPercent: 87.2,
   characterErrorRatePercent: 1.8,
   wordErrorRatePercent: 3.4,
   totalTokensTrained: 1845000,
@@ -455,12 +455,12 @@ export const LandRecordProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       return r;
     }));
 
-    // Append Audit Block to Blockchain
+    // Append Audit Block to Audit Ledger
     await appendAuditBlock(
       target.id,
       target.recordNumber,
       'OCR_EXTRACTION_COMPLETED',
-      'AI Vision Engine (LayoutLMv3)',
+      'Bhoomi OCR Processor',
       'AI_SERVICE',
       'Multilingual OCR Classifier',
       `Completed OCR and field classification with ${target.ocrBoundingBoxes.length} extracted bounding polygons.`

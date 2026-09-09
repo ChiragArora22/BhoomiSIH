@@ -1,7 +1,7 @@
 import { AuditBlock } from '../types/audit';
 
 /**
- * Generates SHA-256 hash for audit blocks
+ * Generates SHA-256 hash for audit blocks using Web Cryptography API
  */
 export async function calculateSHA256(text: string): Promise<string> {
   try {
@@ -12,18 +12,10 @@ export async function calculateSHA256(text: string): Promise<string> {
       return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
   } catch (e) {
-    console.warn('SubtleCrypto unavailable, using fallback hash');
+    console.warn('SubtleCrypto unavailable');
   }
 
-  // Fallback lightweight hash generator
-  let hash = 0;
-  for (let i = 0; i < text.length; i++) {
-    const char = text.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash |= 0; // Convert to 32bit integer
-  }
-  const hex = Math.abs(hash).toString(16).padStart(8, '0');
-  return `0000${hex}${hex}${hex}${hex}`.slice(0, 64);
+  return 'digest unavailable (needs HTTPS or localhost)';
 }
 
 /**
@@ -43,7 +35,7 @@ export async function createAuditBlock(
   const index = previousBlock ? previousBlock.blockIndex + 1 : 1;
   const previousHash = previousBlock ? previousBlock.blockHash : '0000000000000000000000000000000000000000000000000000000000000000';
   const timestamp = new Date().toISOString();
-  const actorIp = '10.142.68.' + Math.floor(10 + Math.random() * 80);
+  const actorIp = 'this device';
 
   const blockData = JSON.stringify({
     index,
@@ -60,6 +52,7 @@ export async function createAuditBlock(
   });
 
   const blockHash = await calculateSHA256(blockData);
+  const isTamperVerified = blockHash !== 'digest unavailable (needs HTTPS or localhost)';
 
   return {
     blockIndex: index,
@@ -75,7 +68,7 @@ export async function createAuditBlock(
     previousHash,
     blockHash,
     digitalSignature,
-    isTamperVerified: true
+    isTamperVerified
   };
 }
 
@@ -96,7 +89,7 @@ export async function verifyAuditChain(chain: AuditBlock[]): Promise<{ isValid: 
 }
 
 /**
- * Creates the initial seed blockchain ledger with authentic cryptographic linkage
+ * Creates the initial seed audit chain with cryptographic linkage
  */
 export async function createInitialAuditChain(): Promise<AuditBlock[]> {
   const block1 = await createAuditBlock(
@@ -107,7 +100,7 @@ export async function createInitialAuditChain(): Promise<AuditBlock[]> {
     'System Initialization Daemon',
     'SYSTEM',
     'Root Ledger Authority',
-    'Initial DILRMP Blockchain Genesis Root Block Initialized with SHA-256.'
+    'Initial audit log root block initialized with SHA-256.'
   );
 
   const block2 = await createAuditBlock(
@@ -126,9 +119,9 @@ export async function createInitialAuditChain(): Promise<AuditBlock[]> {
     'REC_UP_KHATAUNI_001',
     'UP-LKO-2026-KHT-00142',
     'OCR_EXTRACTION_COMPLETED',
-    'BhoomiVision Vision Engine',
+    'Bhoomi OCR Processor',
     'AI_SERVICE',
-    'Multilingual LayoutLMv3 Model',
+    'Multilingual Indic OCR Model',
     'Extracted 28 tabular bounding boxes in Devanagari script with 96.4% confidence.'
   );
 

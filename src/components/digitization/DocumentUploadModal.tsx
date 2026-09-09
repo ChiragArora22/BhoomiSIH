@@ -526,7 +526,7 @@ export const DocumentUploadModal: React.FC<DocumentUploadModalProps> = ({ isOpen
                     <div className="font-mono text-xs text-slate-900 dark:text-white font-bold truncate">{fileName}</div>
                     <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" />
-                      {isParsingFile ? 'Extracting OCR tokens...' : 'Ready for LayoutLMv3 ingestion'}
+                      {isParsingFile ? 'Extracting OCR tokens...' : 'Ready for OCR parsing'}
                     </div>
                   </div>
                 </div>
@@ -795,7 +795,7 @@ export const DocumentUploadModal: React.FC<DocumentUploadModalProps> = ({ isOpen
         <div className="bg-slate-50 dark:bg-slate-950 px-5 sm:px-6 py-3.5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0">
           <span className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 font-mono">
             <Sparkles className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
-            <span>BhoomiVision LayoutLMv3 Ready</span>
+            <span>Bhoomi Indic OCR Pipeline Ready</span>
           </span>
 
           <div className="flex items-center space-x-3">

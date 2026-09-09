@@ -82,7 +82,7 @@ export const PreprocessingStudio: React.FC = () => {
 
     await new Promise(r => setTimeout(r, 450));
     setProcessingProgress(55);
-    setProcessingStep('Executing Multilingual LayoutLMv3 Vision Transformer on OCR boxes...');
+    setProcessingStep('Executing Multilingual Indic OCR Pipeline on bounding boxes...');
 
     await new Promise(r => setTimeout(r, 500));
     setProcessingProgress(85);
@@ -522,7 +522,7 @@ export const PreprocessingStudio: React.FC = () => {
                     Executing AI Vision Pipeline
                   </h3>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
-                    Model: LayoutLMv3-Indic (BhoomiVision v2.4.1)
+                    Model: Bhoomi-Indic-OCR (v2.4.1)
                   </p>
                 </div>
               </div>

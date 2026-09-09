@@ -148,7 +148,7 @@ export const TutorialVideoModal: React.FC<TutorialVideoModalProps> = ({ isOpen, 
                     </span>
                   </h3>
                   <p className="text-[11px] text-slate-400">
-                    Step-by-step walkthrough: AI OCR, 3D Cadastral GIS, and Tamper-Proof Audit
+                    Step-by-step walkthrough: AI OCR, 3D Cadastral GIS, and Append-Only Audit
                   </p>
                 </div>
               </div>

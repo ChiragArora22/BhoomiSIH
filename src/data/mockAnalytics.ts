@@ -111,13 +111,13 @@ export const STATE_DIGITIZATION_PROGRESS: StateProgress[] = [
 ];
 
 export const OCR_PERFORMANCE_METRICS = {
-  totalProcessedThisMonth: 124890,
+  totalProcessedThisMonth: 5,
   averageOcrConfidence: 96.4,
-  autoValidationPassRate: 88.7,
-  pendingHumanReviewCases: 14,
+  autoValidationPassRate: 80.0,
+  pendingHumanReviewCases: 1,
   avgProcessingTimeSec: 2.8,
   activeLearningRetrainedModels: 18,
-  cryptographicBlocksVerified: 48912,
+  cryptographicBlocksVerified: 4,
   languageDistribution: [
     { language: 'Hindi (हिंदी)', share: 38, count: 47458 },
     { language: 'Marathi (मराठी)', share: 22, count: 27475 },

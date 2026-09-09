@@ -79,13 +79,13 @@ const DEMO_STEPS: DemoStepInfo[] = [
   {
     stepIndex: 4,
     tabKey: 'AUDIT_LEDGER',
-    title: 'Tamper-Proof Audit Ledger',
+    title: 'Append-Only Audit Ledger',
     badge: 'Cryptographic Chain',
     icon: ShieldCheck,
     whatJudgesSee: [
       'SHA-256 chained blocks linking Genesis to the latest Patwari/Tehsildar modification',
       'Live dynamic block counter with real-time block appending for every action taken in the UI',
-      'Cryptographic Integrity Verification badge confirming valid parent hashes with zero tampering'
+      'Cryptographic Integrity Verification badge confirming valid parent hashes'
     ]
   },
   {

@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Sparkles, 
@@ -118,7 +118,7 @@ export const PrototypeNoticeModal: React.FC<PrototypeNoticeModalProps> = ({ isOp
                     <ShieldCheck className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" />
                     <div>
                       <strong className="block text-slate-900 dark:text-white">SHA-256 Audit Trail</strong>
-                      <span>Tamper-proof blockchain ledger logging every edit.</span>
+                      <span>Cryptographic append-only log chaining every edit.</span>
                     </div>
                   </div>
                 </div>

@@ -56,7 +56,7 @@ const CountUpValue: React.FC<{
 };
 
 export const ExecutiveDashboard: React.FC = () => {
-  const { records, setActiveRecordId, setActiveTab, modelMetrics, t } = useLandRecord();
+  const { records, setActiveRecordId, setActiveTab, modelMetrics, auditChain, t } = useLandRecord();
   const [selectedStateCode, setSelectedStateCode] = useState<string>('UP');
   const [isTutorialOpen, setIsTutorialOpen] = useState<boolean>(false);
 
@@ -126,101 +126,101 @@ export const ExecutiveDashboard: React.FC = () => {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-                  DILRMP Modernization Efficiency Benchmark
+                  Official DILRMP Modernization Benchmark
                 </span>
                 <span className="text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                  NITI Aayog Targets
+                  DoLR / DILRMP-MIS (31-Dec-2023)
                 </span>
               </div>
               <h3 className="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
-                Transformative Impact: Legacy Manual Tehsil vs. Bhoomi-Setu AI Pipeline
+                National Progress Baseline & Local Evaluation Harness
               </h3>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">Verified across</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">Source</span>
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-xl border border-slate-200 dark:border-slate-700">
-              4,200+ Tehsils
+              DoLR-MIS · 31-Dec-2023
             </span>
           </div>
         </div>
 
         {/* 4 Hero Impact Big Metric Pillars */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-5 relative z-10">
-          {/* Pillar 1: Cycle Time Reduction */}
+          {/* Pillar 1: RoR Computerisation */}
           <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 relative group hover:border-indigo-500/50 transition-all">
             <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center justify-between mb-1">
-              <span>Digitization Cycle Time</span>
-              <Clock className="w-3.5 h-3.5 text-indigo-500" />
+              <span>RoR Computerisation</span>
+              <FileText className="w-3.5 h-3.5 text-indigo-500" />
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-black text-indigo-600 dark:text-indigo-400 font-mono tracking-tight">78%</span>
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">Reduction</span>
+              <span className="text-3xl font-black text-indigo-600 dark:text-indigo-400 font-mono tracking-tight">95.09%</span>
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">National</span>
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1.5 leading-snug">
-              Average Tehsil ingestion dropped from <strong className="text-slate-800 dark:text-slate-200">18.5 days</strong> manual transcription down to <strong className="text-emerald-600 dark:text-emerald-400">4.2 minutes</strong> per RoR.
+              Official DoLR MIS benchmark: 6,24,000+ revenue villages with computerised Records of Rights across participating States.
             </p>
             <div className="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
-              <span>18.5 Days</span>
-              <ArrowRight className="w-3 h-3 text-indigo-500" />
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">4.2 Mins</span>
+              <span>Official MIS Baseline</span>
+              <span className="font-bold text-indigo-600 dark:text-indigo-400">As on 31-Dec-2023</span>
             </div>
           </div>
 
-          {/* Pillar 2: Cost Savings */}
+          {/* Pillar 2: Cadastral Map Digitisation */}
           <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 relative group hover:border-emerald-500/50 transition-all">
             <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center justify-between mb-1">
-              <span>Projected Annual Savings</span>
-              <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
+              <span>Cadastral Geo-Referencing</span>
+              <Map className="w-3.5 h-3.5 text-emerald-500" />
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400 font-mono tracking-tight">₹142.6 Cr</span>
+              <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400 font-mono tracking-tight">49.10%</span>
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">National</span>
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1.5 leading-snug">
-              Projected administrative and physical archiving savings across 4,200+ Sub-Districts via automated Indic OCR.
+              Official DoLR MIS figure: cadastral maps digitised, geo-referenced, and linked to land revenue records pan-India.
             </p>
             <div className="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
-              <span>Clerical Hours: -84%</span>
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">Pan-India</span>
+              <span>Official MIS Baseline</span>
+              <span className="font-bold text-emerald-600 dark:text-emerald-400">As on 31-Dec-2023</span>
             </div>
           </div>
 
-          {/* Pillar 3: Share Dispute Preemption */}
+          {/* Pillar 3: Share Math Check Consistency */}
           <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 relative group hover:border-amber-500/50 transition-all">
             <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center justify-between mb-1">
-              <span>Dispute Preemption Rate</span>
+              <span>Statutory Rule Consistency</span>
               <Scale className="w-3.5 h-3.5 text-amber-500" />
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-black text-amber-600 dark:text-amber-400 font-mono tracking-tight">99.4%</span>
-              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase">Preempted</span>
+              <span className="text-3xl font-black text-amber-600 dark:text-amber-400 font-mono tracking-tight">100%</span>
+              <span className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase">Deterministic</span>
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1.5 leading-snug">
-              Automated share normalization under UP Revenue Code Sec. 31 catches 100% of mathematical partition errors pre-mutation.
+              Local test harness: deterministic mathematical validation checks 100% of co-owner share sums under UP Revenue Code Sec 31.
             </p>
             <div className="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
-              <span>Court Stays: -91%</span>
-              <span className="font-bold text-amber-600 dark:text-amber-400">Rule 14 Verified</span>
+              <span>Evaluation Suite</span>
+              <span className="font-bold text-amber-600 dark:text-amber-400">5 Test Records</span>
             </div>
           </div>
 
-          {/* Pillar 4: Blockchain Provenance */}
+          {/* Pillar 4: Discrepancy Detection Rate */}
           <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 relative group hover:border-cyan-500/50 transition-all">
             <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center justify-between mb-1">
-              <span>Tamper Resistance</span>
+              <span>Discrepancy Catch Rate</span>
               <ShieldCheck className="w-3.5 h-3.5 text-cyan-500" />
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-black text-cyan-600 dark:text-cyan-400 font-mono tracking-tight">100%</span>
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase">Immutable</span>
+              <span className="text-3xl font-black text-cyan-600 dark:text-cyan-400 font-mono tracking-tight">20.0%</span>
+              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase">Flagged</span>
             </div>
             <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1.5 leading-snug">
-              Every transcription correction, cadastral parcel split, and DSC approval cryptographically chained with real SHA-256 blocks.
+              Local harness: 1 of 5 records correctly identified with mathematical share mismatch (112.5% &gt; 100.0%) for Patwari review.
             </p>
             <div className="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
-              <span>Zero Unaudited Overwrites</span>
-              <span className="font-bold text-cyan-600 dark:text-cyan-400">NIC e-Sign</span>
+              <span>1 Flagged / 4 Valid</span>
+              <span className="font-bold text-cyan-600 dark:text-cyan-400">Deterministic</span>
             </div>
           </div>
         </div>
@@ -229,22 +229,22 @@ export const ExecutiveDashboard: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50/80 dark:bg-slate-950/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 text-xs relative z-10">
           {/* Legacy Flow */}
           <div className="space-y-2">
-            <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400 font-bold uppercase text-[10px] tracking-wider">
-              <AlertOctagon className="w-3.5 h-3.5" />
-              <span>Legacy Manual Tehsil Processing (Pre-Bhoomi-Setu)</span>
+            <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400 font-bold uppercase text-[10px] tracking-wider">
+              <Clock className="w-3.5 h-3.5" />
+              <span>Standard Paper-Based Tehsil Workflow</span>
             </div>
             <ul className="space-y-1.5 text-slate-600 dark:text-slate-400 text-[11px]">
               <li className="flex items-start gap-2">
-                <span className="text-rose-500 font-bold">✕</span>
-                <span><strong>18.5 Days:</strong> Manual physical file movement between Lekhpal, Kanungo, and Tehsildar.</span>
+                <span className="text-amber-500 font-bold">•</span>
+                <span><strong>Manual Transcription:</strong> Physical record registers prone to clerical discrepancies in regional scripts.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-rose-500 font-bold">✕</span>
-                <span><strong>14.2% Error Rate:</strong> Clerical transcription mistakes in archaic Urdu/Hindi revenue terminology.</span>
+                <span className="text-amber-500 font-bold">•</span>
+                <span><strong>Unchecked Fractions:</strong> Partition share ratios are not automatically summed to match gross parcel area.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-rose-500 font-bold">✕</span>
-                <span><strong>Zero Mathematical Validation:</strong> Co-owner fractions frequently exceeded 100%, causing family civil litigation.</span>
+                <span className="text-amber-500 font-bold">•</span>
+                <span><strong>No Cryptographic Audit:</strong> Disconnected paper registers lack machine-verifiable modification provenance.</span>
               </li>
             </ul>
           </div>
@@ -253,20 +253,20 @@ export const ExecutiveDashboard: React.FC = () => {
           <div className="space-y-2 border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-800 pt-3 md:pt-0 md:pl-4">
             <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold uppercase text-[10px] tracking-wider">
               <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>Bhoomi-Setu DILRMP Intelligent Pipeline (Active Demo)</span>
+              <span>Bhoomi-Setu Verification Architecture</span>
             </div>
             <ul className="space-y-1.5 text-slate-600 dark:text-slate-400 text-[11px]">
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 font-bold">✓</span>
-                <span><strong>4.2 Minutes:</strong> Automated Indic layout parsing + single-click human-in-the-loop review.</span>
+                <span><strong>HITL Verification:</strong> Split-screen review pairs OCR bounding boxes with interactive field confirmation.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 font-bold">✓</span>
-                <span><strong>98.4% Mean CRR:</strong> LayoutLMv3 + Indic-OCR with active learning retraining feedback loop.</span>
+                <span><strong>Sec 31 Rule Engine:</strong> Deterministic share validation flags mismatches and offers proportional rebalancing.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 font-bold">✓</span>
-                <span><strong>Statutory Math Engine:</strong> Instant proportional re-balancing to 100.00% & SHA-256 provenance chaining.</span>
+                <span><strong>Append-Only Provenance:</strong> Local SHA-256 chained log records every operator action and Tehsildar sanction.</span>
               </li>
             </ul>
           </div>
@@ -298,11 +298,11 @@ export const ExecutiveDashboard: React.FC = () => {
             </div>
           </div>
           <div className="text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-            <CountUpValue to={124890} duration={800} formatIndian={true} />
+            <CountUpValue to={records.length} duration={800} formatIndian={false} suffix=" Records" />
           </div>
           <div className="flex items-center text-[11px] text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
             <TrendingUp className="w-3.5 h-3.5 mr-1" />
-            +18.4% this week
+            Evaluation suite active
           </div>
         </motion.div>
 
@@ -347,10 +347,10 @@ export const ExecutiveDashboard: React.FC = () => {
             </div>
           </div>
           <div className="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 font-mono tracking-tight">
-            <CountUpValue to={88.7} duration={800} decimals={1} suffix="%" />
+            <CountUpValue to={80.0} duration={800} decimals={1} suffix="%" />
           </div>
           <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-2">
-            0 human errors on math checks
+            4 of 5 records passed math rules
           </div>
         </motion.div>
 
@@ -376,7 +376,7 @@ export const ExecutiveDashboard: React.FC = () => {
             <CountUpValue to={pendingCount} duration={800} suffix=" Records" />
           </div>
           <div className="text-[11px] text-amber-700/80 dark:text-amber-300/80 mt-2 font-medium">
-            Avg review time: 18 sec
+            Awaiting HITL verification
           </div>
         </motion.div>
 
@@ -402,7 +402,7 @@ export const ExecutiveDashboard: React.FC = () => {
             <CountUpValue to={disputedCount} duration={800} suffix=" Cases" />
           </div>
           <div className="text-[11px] text-rose-700/80 dark:text-rose-300/80 mt-2">
-            Area mismatch / SDM stay
+            UP Rev Code Sec 31 flag
           </div>
         </motion.div>
 
@@ -412,19 +412,19 @@ export const ExecutiveDashboard: React.FC = () => {
           whileHover={{ y: -3 }}
           onClick={() => setActiveTab('AUDIT_LEDGER')}
           className="bg-white dark:bg-slate-900/85 border border-slate-200/90 dark:border-slate-800/90 rounded-2xl p-4 shadow-sm dark:shadow-none hover:shadow-card-hover dark:hover:border-cyan-500/50 transition-all cursor-pointer group"
-          title="Click to inspect Blockchain Audit Ledger"
+          title="Click to inspect Local Audit Ledger"
         >
           <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 text-xs mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{t('kpiBlockchain')}</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{t('kpiAuditLog')}</span>
             <div className="p-1.5 rounded-xl bg-cyan-50 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
               <ShieldCheck className="w-4 h-4" />
             </div>
           </div>
           <div className="text-3xl font-extrabold text-cyan-600 dark:text-cyan-300 font-mono tracking-tight">
-            <CountUpValue to={48912} duration={800} formatIndian={true} />
+            <CountUpValue to={auditChain.length} duration={800} formatIndian={false} suffix=" Blocks" />
           </div>
           <div className="flex items-center text-[11px] text-cyan-600 dark:text-cyan-400/80 mt-2 font-medium">
-            100% Tamper Verified
+            SHA-256 chained blocks
           </div>
         </motion.div>
       </motion.div>
@@ -580,12 +580,12 @@ export const ExecutiveDashboard: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800/60">
-                <span className="text-slate-500 dark:text-slate-400">Core Vision Transformer</span>
-                <span className="font-mono text-slate-800 dark:text-slate-200 font-semibold">BhoomiVision LayoutLMv3</span>
+                <span className="text-slate-500 dark:text-slate-400">Core Document Parser</span>
+                <span className="font-mono text-slate-800 dark:text-slate-200 font-semibold">Bhoomi Indic OCR Pipeline</span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800/60">
                 <span className="text-slate-500 dark:text-slate-400">Handwritten Devanagari OCR</span>
-                <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">CRNN + CTC Attention (86.8%)</span>
+                <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">CRNN + CTC Attention</span>
               </div>
               <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800/60">
                 <span className="text-slate-500 dark:text-slate-400">Dravidian Script Parser</span>
@@ -593,11 +593,11 @@ export const ExecutiveDashboard: React.FC = () => {
               </div>
               <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800/60">
                 <span className="text-slate-500 dark:text-slate-400">Area Math Summation Engine</span>
-                <span className="font-mono text-indigo-600 dark:text-indigo-400 font-semibold">100% Deterministic Rule-Check</span>
+                <span className="font-mono text-indigo-600 dark:text-indigo-400 font-semibold">UP Revenue Code Sec 31 Engine</span>
               </div>
               <div className="flex items-center justify-between py-1">
                 <span className="text-slate-500 dark:text-slate-400">Active Learning Retrain Cycles</span>
-                <span className="font-mono text-amber-600 dark:text-amber-400 font-semibold">42 Epochs Completed</span>
+                <span className="font-mono text-amber-600 dark:text-amber-400 font-semibold">44 Batches Processed</span>
               </div>
             </div>
 

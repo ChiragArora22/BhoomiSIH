@@ -245,7 +245,7 @@ export const ExtractedFieldsForm: React.FC = () => {
       );
     }
 
-    setShowSuccessToast('Co-owner shares re-normalized proportionally to 100.00% (DILRMP Compliant)');
+    setShowSuccessToast('Co-owner shares re-normalized proportionally to 100.00% (UP Revenue Code Sec 31)');
     setTimeout(() => setShowSuccessToast(null), 4000);
   };
 

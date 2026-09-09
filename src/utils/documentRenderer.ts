@@ -284,7 +284,7 @@ export function renderSyntheticLandRecordToCanvas(canvas: HTMLCanvasElement, rec
   ctx.fillStyle = '#0f172a';
   ctx.font = '11px Inter, monospace';
   ctx.textAlign = 'left';
-  ctx.fillText(`DILRMP DIGITAL VERIFICATION HASH: SHA256-${record.id}-VALIDATED-OK`, 65, height - 66);
+  ctx.fillText(`DIGITAL VERIFICATION HASH: SHA256-${record.id}-LOCAL-VERIFIED`, 65, height - 66);
   ctx.textAlign = 'right';
-  ctx.fillText('CERTIFIED COPY | NIC / DILRMP COMPLIANT', width - 65, height - 66);
+  ctx.fillText('SIMULATED RECORD OF RIGHTS COPY | FOR EVALUATION ONLY', width - 65, height - 66);
 }
