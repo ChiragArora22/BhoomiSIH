@@ -83,10 +83,10 @@ export const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="w-64 bg-white/95 dark:bg-slate-900/90 border-r border-slate-200/90 dark:border-slate-800 flex flex-col justify-between shrink-0 h-[calc(100vh-85px)] select-none transition-colors duration-200">
+    <aside className="w-14 md:w-64 bg-white/95 dark:bg-slate-900/90 border-r border-slate-200/90 dark:border-slate-800 flex flex-col justify-between shrink-0 h-[calc(100vh-85px)] select-none transition-colors duration-200">
       {/* Navigation Links */}
-      <div className="p-3 space-y-1 overflow-y-auto">
-        <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+      <div className="p-1.5 md:p-3 space-y-1 overflow-y-auto">
+        <div className="hidden md:block px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
           Core Workflows
         </div>
         
@@ -99,7 +99,7 @@ export const Sidebar: React.FC = () => {
               onClick={() => setActiveTab(item.id)}
               whileTap={{ scale: 0.98 }}
               aria-label={`${item.label} - ${item.subLabel}`}
-              className={`relative w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+              className={`relative w-full flex items-center justify-center md:justify-between px-2 md:px-3 py-2.5 rounded-xl text-left transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                 isActive
                   ? 'text-indigo-600 dark:text-indigo-400 font-semibold'
                   : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white'
@@ -112,7 +112,7 @@ export const Sidebar: React.FC = () => {
                   transition={{ type: "spring", stiffness: 450, damping: 35 }}
                 />
               )}
-              <div className="relative z-10 flex items-center space-x-3">
+              <div className="relative z-10 flex items-center space-x-0 md:space-x-3">
                 <div className={`p-1.5 rounded-lg transition-colors ${
                   isActive 
                     ? 'bg-indigo-600 text-white dark:bg-indigo-500/20 dark:text-indigo-300 shadow-sm' 
@@ -120,14 +120,14 @@ export const Sidebar: React.FC = () => {
                 }`}>
                   <Icon className="w-4 h-4" />
                 </div>
-                <div>
+                <div className="hidden md:block">
                   <div className="text-xs leading-snug">{item.label}</div>
                   <div className="text-[10px] text-slate-500 dark:text-slate-400 font-normal leading-tight">{item.subLabel}</div>
                 </div>
               </div>
 
               {item.badge !== undefined && item.badge > 0 && (
-                <span className={`relative z-10 text-[10px] px-2 py-0.5 rounded-full font-bold ${item.badgeColor || 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}>
+                <span className={`relative z-10 text-[9px] md:text-[10px] px-1 md:px-2 py-0.5 rounded-full font-bold ${item.badgeColor || 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}>
                   {item.badge}
                 </span>
               )}
@@ -136,7 +136,7 @@ export const Sidebar: React.FC = () => {
         })}
 
         {disputedCount > 0 ? (
-          <div className="pt-2">
+          <div className="pt-2 hidden md:block">
             <div 
               onClick={() => {
                 const disputedRecord = records.find(r => r.status === 'DISPUTED' || (r.validationIssues && r.validationIssues.some(i => i.severity === 'CRITICAL')));
@@ -156,7 +156,7 @@ export const Sidebar: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="pt-2">
+          <div className="pt-2 hidden md:block">
             <div 
               onClick={() => setActiveTab('SPLIT_VERIFY')}
               className="cursor-pointer mx-1 p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-500/30 text-emerald-800 dark:text-emerald-300 flex items-start space-x-2.5 text-xs hover:bg-emerald-100 dark:hover:bg-emerald-950/50 transition-colors shadow-xs"
@@ -175,7 +175,7 @@ export const Sidebar: React.FC = () => {
       </div>
 
       {/* Role Indicator & System Footnote */}
-      <div className="p-3 border-t border-slate-200/90 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
+      <div className="hidden md:block p-3 border-t border-slate-200/90 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/40 space-y-2">
         <div className="bg-white dark:bg-slate-900/90 rounded-xl p-2.5 border border-slate-200 dark:border-slate-800 flex items-center justify-between shadow-sm">
           <div className="flex items-center space-x-2">
             <div className={`w-2 h-2 rounded-full animate-pulse ${
